@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <p class="tip-title">Tip Calculator</p>
+    <form class="form">
+        <div id="price-label"><p>{{ form.price.label }}</p></div>
+        <div id="price" class="input-container"><span class="sign">$</span>{{ form.price }}</div>
+        <div id="tip-amount-label"><p>{{ form.tip_amount.label }}</p></div>
+        <div id="tip-amount" class="input-container"><span class="sign">%</span>{{ form.tip_amount }}</div>
+         <div class="footer">
+             <div class="people">People</div>
+             <div class="numbers">
+                    <div id="person-amount1" class="button" onclick="decreasePeople()">-</div>
+                    <div id="amount">1</div>
+                    <div id="person-amount2" class="button" onclick="increasePeople()">+</div>
+             </div>
+             <div class="total-footer">
+                <span class="total">Total</span>
+                 <span id="sum"><span class="dollar">$</span>0.00</span>
+
+             </div>
+
+    </form>
+
+  </div>
+
+
+</body>
+</html>

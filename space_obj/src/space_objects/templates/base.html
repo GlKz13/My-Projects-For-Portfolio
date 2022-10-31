@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Main Page{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'space_objects/css/styles.css' %}">
+</head>
+<body>
+
+<div id="bg">
+    <!--<img  src="/static/space_objects/images/background.jpeg" rel=""> -->
+</div>
+
+        <!-- Header -->
+<div id="top-line">
+     <div id="top-line-background"></div>
+<header class="top-links">
+    <a href="{% url 'space_objects:main' %}"><img id="ico" src= "{% static '/space_objects/images/planet.ico'%}"></a>
+    <a id="header-link" href="{% url 'space_objects:main' %}">О сайте</a>
+
+
+<!--   -->
+
+
+<!--   -->
+</header>
+</div>
+         <!-- Header -->
+
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div id="sidebar-bg"></div>
+            <div id="container">
+    {% for item in cats %}
+    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a> <br>
+    {% endfor %}
+            </div>
+        </nav>
+        <!-- Sidebar -->
+
+
+         <!-- Content  -->
+{% block content %}
+
+<div id="greeting">
+    <div id="greeting-bg"></div>
+    <div id="about">
+        <h2>Добро Пожаловать!</h2>
+        <p>Этот сайт предназначен для любителей астрономии, истории освоения космоса, и людей,
+            чьё воображение всегда будоражила неизвестность необъятных просторов Вселенной.</p>
+        <p>На сайте представлена некоторая информация, которая поможет приоткрыть завесу тайны и непонимания, связанную
+        с космической отраслью.</p>
+        <p>Надеемся, что предоставленный контент окажется важным и познавательным.</p>
+        <p>В случае возникновения вопросоы, жалоб, или предложений, вы всегда можете связаться с нами.</p>
+
+
+    </div>
+</div>
+{% endblock %}
+ <!-- Content  -->
+
+<div class="subscribe">
+    <label class="subscribe-label" for="check">Подписаться на рассылку</label>
+    <input type="checkbox" id="check">
+    <div id="form">
+        <form method="POST" action="{% url 'space_objects:main' %}">
+
+            {% csrf_token %}
+        {% for f in form %}
+        <p><label for="f.id_for_label">{{ f.label }}:</label><span class="form-element">{{ f }}</span></p>
+        {% endfor %}
+            <input type="submit" value="Отправить e-mail">
+
+            {% if send %}
+            <p id="thanks">Спасибо за Ваш e-mail</p>
+            {% endif %}
+
+        </form>
+    </div>
+
+</div>
+
+
+ <!-- Contacts -->
+
+<label for="check-cont"  id="contacts">Контакты</label>
+    <input id="check-cont" type="checkbox">
+    <div id="contacts-window">
+        <p>Контакты</p>
+        <ul>
+            <li>Телефон: </li>
+            <li>e-mail: </li>
+        </ul>
+    </div>
+
+<!-- Contacts -->
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ cat.title }}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{% for o in objs %}
+<div class="category-content">
+
+<div class="item">
+    <div class="title-date-bg"></div>
+    <div class="item-content">
+    {% if o.image %}
+    <img class="image obj-image" rel="" src="{{ o.image.url }}">
+    {% endif %}
+<h1><a class="post" href="{{ o.get_absolute_url }}">{{ o.title }}</a></h1>
+<p>{{ o.published }}</p>
+    </div>
+
+</div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

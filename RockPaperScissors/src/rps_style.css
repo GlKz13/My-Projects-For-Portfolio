@@ -1,0 +1,37 @@
+body, html {
+    padding: 0;
+    margin: 0;
+
+}
+
+.container {
+    margin: auto;
+    margin-top: 3em;
+    border: 1px solid red;
+    width: 20em;
+    height: 10em;
+    text-align: center;
+    padding: 2em;
+
+}
+
+.endButton {
+    margin-top: 1em;
+}
+
+#rock,
+#paper,
+#scissors {
+    width: 5.4em;
+    height: 5.4em;
+    text-align: center;
+
+}
+ #endButton {
+    width: 5.4em;
+    height: 5.4em;
+ }
+
+.rpsButton {
+    margin: 1em;
+}

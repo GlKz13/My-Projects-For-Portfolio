@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="{% static 'js/lawyer_js.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>{% block title %}Partners{% endblock %}</title>
+    {% block style %}<link rel="stylesheet" href="{% static 'law_s/css/style.css' %}">{% endblock %}
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!-- fonts -->
+
+    
+
+</head>
+<body>
+
+{% block content %}
+
+<header>
+    <div class="header-text">
+        <p id="partners">Partners</p>
+        <p>юридическая фирма</p>
+    </div>
+</header>
+
+
+
+<div id="menu">
+    <nav class="navigation-bar">
+        <a id="our-lawyers" href="#lawyers-link"><p>Наши Адвокаты</p></a>
+        <a id="our-success"><p>Наши Успехи</p></a>
+        <a id="service" href="#"><p>Услуги</p></a>
+    </nav>
+    <p id="movable" class="transparent">Partners</p>
+</div>
+
+<div class="block">
+<cite><p>Решать юридически, а не оружием.<br>Марк Туллий Цицерон</p></cite>
+<img src="{% static 'law_s/images/main_ico.jpeg' %}" id="main_ico">
+</div>
+
+
+
+<div class="block">
+    <div class="image help"><img src="{% static 'law_s/images/help.jpeg' %}"></div>
+        <div class="info help-info">
+            <div class="sub-header"><p>Заключение Договоров</p></div>
+            <section class="one"><p>Помогаем заключить договор и оказываем качественные юридические услуги</p></section>
+        </div>
+</div>
+
+
+
+<div class="block">
+<div class="image court"><img src="{% static 'law_s/images/court.jpeg' %}"></div>
+        <div class="info help-info">
+            <div class="sub-header"><p>Защита в суде</p></div>
+            <section class="two"><p>Оказываем поддержку в суде и сопровождаем доводим дело до конца</p></section>
+        </div>
+</div>
+
+
+<div class="BG">
+
+    <p class="sub-header" id="lawyers-link">Наши Адвокаты</p>
+
+    <div id="lawyers">
+        <div class="up">
+            <a class="lawyer-link" href="{% url 'law_s:jacob' %}"><div class="lawyer-image m1 cell"><img src="{% static 'law_s/images/lawyers/m2.jpeg' %}"><p>Джейкоб Хендерсон</p></div></a>
+            <a class="lawyer-link" href="#"><div class="lawyer-image m1 cell"><img src="{% static 'law_s/images/lawyers/m1.jpeg' %}"><p>Уильям Янг</p></div></a>
+            <a class="lawyer-link" href="#"><div class="lawyer-image w1 cell"><img src="{% static 'law_s/images/lawyers/w1.jpeg' %}"><p>Шелли Браун</p></div></a>
+        </div>
+
+        <div class="down">
+            <a class="lawyer-link" href="#"><div class="lawyer-image m3 cell"><img src="{% static 'law_s/images/lawyers/m3.jpeg' %}"><p>Брендон Хейз</p></div></a>
+            <a class="lawyer-link" href="#"><div class="lawyer-image w2 cell"><img src="{% static 'law_s/images/lawyers/w2.jpeg' %}"><p>Саманта Уилсон</p></div></a>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+       <!-- {% if not sent %} -->
+         <form method="POST" method="POST">
+             {% for field in client_form %}
+             <p><label for="field.id_for_label" >{{ field.label }}</label><span class="form-element">{{ field }}</span></p>
+             {% csrf_token %}
+                {% endfor %} 
+             <p><button type="submit" id="sendForm">Отправить</button></p>
+         </form>
+        <!-- {% else %} -->
+         <p>В ближайшее время мы свяжемся с вами</p>
+       <!--  {% endif %} -->
+
+        <div id="successes">
+            <p class='footer-header'>Почему мы - достойный выбор?</p>
+            <ul>
+                <li>Более 500 выигранных дел</li>
+                <li>Многочисленные адвокатсие награды</li>
+                <li>Опытные адвокаты</li>
+                <li>Берёмся даже за самые сложные дела</li>
+             </ul>
+        </div>
+    </footer>
+
+
+</div>
+
+{% endblock %}
+  
+</body>
+</html>

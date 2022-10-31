@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block style  %}<link rel="stylesheet" href="{% static 'css/style_shop.css' %}">{% endblock %}
+	<title>{% block title %}My Shop{% endblock%}</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<script type="text/javascript" src="{% static 'js/script_shop.js' %}" defer></script>
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="menu-color">
+	<div class="menu">
+	<a class="logo" href="{% url 'shop:product_list' %}">My Shop</a>
+			<div  id="dropdown" class="a dropdown">
+				<button class="link" id="dropdownBtn">Products</button>
+				<div id="dropdownMenu" class="dropdown-menu" style="opacity: 0; transition: opacity .1s">
+						<div class="category">
+						<p class="cat-title">Categories</p>
+						{% for cat in categories %}
+						<div class="cats">
+							<a class='cat' href="{{ cat.get_absolure_url }}">{{ cat.name }}</a>
+						</div>
+						{% endfor %}
+					</div>
+
+					
+
+				</div>
+			</div>
+			<div class="a"><button class="link">Info</button></div>
+			<div class="a"><button class="link">Contacts</button></div>
+
+
+	</div>
+
+			<form class='form' action="{% url 'shop:product_search'%}">
+				<div class="search-feild">
+				<button type="submit" class="button"><img id="search_img" src="{% static 'images/search_img.png'%}"></button> 
+				<div >{{ search_form.search }}</div>
+				</div>
+				 
+			</form>
+
+			<div class="cart">
+			{% with total_items=cart|length %}
+			{% if total_items > 0 %}
+		
+			<h3>Your cart:</h3>
+			<a href="{% url 'cart:cart_detail' %}"><p>{{ total_items }} item{{ total_items|pluralize }},
+			${{ cart.get_total_price }}</p></a>
+			{% else %}
+			<h3><p>Your cart is empty.</p></h3>
+
+			{% endif %}
+
+			{% endwith %}
+
+			</div>
+	
+</div>
+
+
+	{% block content %}
+	
+	{% endblock %}
+		
+
+
+</body>
+
+</html>
+

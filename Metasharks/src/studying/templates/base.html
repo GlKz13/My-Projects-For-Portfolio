@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load rest_framework %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+	{% for s in students %}
+	<div>
+		{{ s.group }}
+		{{s.student_name }}
+		{{ s.student_last_name }}
+		{{s.direction}}
+	</div>
+	{% endfor %}
+	<a href="{% url 'export' %}">Download</a>
+	
+	
+
+	
+
+{% endblock %}
+</body>
+</html>

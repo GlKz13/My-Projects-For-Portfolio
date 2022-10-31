@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load rest_framework %}
+{% block content %}
+	{{ profile.student_name }}
+
+
+<form action="{% url 'student-detail' pk=profile.pk %}" method="POST">
+    {% csrf_token %}
+    {% render_form serializer %}
+    <input type="submit" value="Save">
+</form>
+
+
+{% endblock %}

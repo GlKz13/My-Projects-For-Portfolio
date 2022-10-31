@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ obj.title }}
+{% endblock %}
+
+{% block content %}
+<div class="object-content">
+    <div id="object-content-bg"></div>
+    <div class="_object-content">
+    {% if obj.image %}
+    <p><img rel="" src="{{ obj.image.url }}" id="obj-image" class="obj-image"></p>
+    {% endif %}
+    <div id="text">
+        <h2>{{ obj.title }}</h2>
+    <p>{{ obj.content|linebreaks }}</p>
+    </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<div id="create-order" >
+	<div class="order-title">Create an Order</div>
+	<form method="POST" id="create-order-form">
+		{% for f in form %}
+	<div class="one-field">
+		<label class="label">{{ f.label }}</label>
+		<span class='field'>{{ f }}</span>
+	</div>
+		
+		{% csrf_token %}
+		{% endfor %}
+	<input type="submit" value="Place an Order" name='s'>
+	</form>
+	{{ form.errors }}
+
+
+<div>
+{% endblock %} 

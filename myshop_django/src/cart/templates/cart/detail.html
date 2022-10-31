@@ -1,0 +1,30 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style_shop.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css'%}"> 
+{% endblock %}
+
+
+{% block title %}
+    Your shopping cart
+{% endblock %}
+
+{% block content %}
+<div class=content>
+    <div class="items">
+        {% for item in cart %}
+            {% with product=item.product %}
+            <div class='line'>Name<p class="name">{{ product.name }}</p></div>
+            <div class='line'>Quantity<p class="quantity">x{{ item.quantity }}</p></div>
+            <div class='line'>Total Price<p class="price">{{ item.total_price }}</p></div>
+            {% endwith %}
+        {% endfor %}
+        <div>
+    <div class="links">
+        <a href="{% url 'shop:product_list'%}">Return</a>
+        <a href="{% url 'order:order_create' %}">Checkout</a>
+    </div>
+</div>
+{% endblock %}

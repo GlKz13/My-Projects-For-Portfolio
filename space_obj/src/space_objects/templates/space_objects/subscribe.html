@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+<form method="POST" action="{% url 'space_objects:subscribe' %}">
+    {% csrf_token %}
+    {% for f in form %}
+  <p><label for="f.id_for_label">{{ f.label }}:</label><span class="form-element">{{ f }}</span></p>
+    {% endfor%}
+<input type="submit">
+</form>
+
+{% endblock %}

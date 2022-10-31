@@ -1,0 +1,125 @@
+html {
+    background-color: #770CD3;
+    font-family: 'Roboto', sans-serif;
+}
+#price-label, #tip-amount-label {
+       color: white;
+       font-size: 1.1em;
+       margin-bottom: -.7em;
+}
+
+
+#container {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 5em;
+    margin: auto;
+    margin-top: 4em;
+
+    width: 17em;
+     background-color: #A349F8;
+     border-radius: 1em;
+
+}
+.tip-title {
+    text-align: center;
+    padding-top: 1em;
+    overflow: auto;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
+#sum {
+    float: right;
+}
+
+.input-container {
+    background-color: #8E71A8  ;
+    border-radius: 4px;
+}
+
+#tipInput,
+#BillTotallInput {
+    background: none;
+    border: none;
+    outline: none;
+    padding: none;
+    font-size: 1em;
+    color: white;
+
+}
+
+#tipInput::placeholder {
+    color: white;
+    opacity: .7;
+}
+
+#BillTotallInput::placeholder {
+    color: white;
+    opacity: .7;
+}
+.sign {
+    padding: .3em;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+    margin-top: 2em;
+}
+
+.people {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    margin-bottom: 1em;
+    color: white;
+
+}
+
+.button {
+    border: 3px solid #963FE8   ;
+    width: 1.4em;
+    height: 1.4em;
+    text-align: center;
+    padding: .2em;
+    border-radius: 50%;
+    background-color: #E8D0FD;
+    cursor: pointer;
+
+}
+
+.numbers {
+    display: flex;
+}
+
+#amount {
+
+    width: 1.4em;
+    height: 1.4em;
+     text-align: center;
+     margin-top: -.2em;
+     padding: .3em;
+     color: white;
+      font-size: 1.5em;
+      font-family: 'Roboto', sans-serif;
+}
+
+.total-footer {
+    margin-top: 2em;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+     font-size: 1.5em;
+
+}
+
+
+.dollar {
+    padding: .3em;
+
+}
+
+#sum {
+    margin-right: 1em;
+}

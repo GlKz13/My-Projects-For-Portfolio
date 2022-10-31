@@ -1,0 +1,7 @@
+.line {
+	display: flex;
+}
+
+.items {
+	display: inline;
+}
